@@ -51,7 +51,7 @@ int getSeed() {
   String thisKey = cp5.get(Textfield.class, "key").getText();
   int keySeed = 1;
   for (int i = 0; i < thisKey.length()-1; i++) 
-    keySeed *= int(thisKey.charAt(i) * (thisKey.charAt(i)-thisKey.charAt(i+1)));  // перемножением
+    keySeed *= int(thisKey.charAt(i) * (thisKey.charAt(i)-thisKey.charAt(i+1)));  // перемножением с разностью
   return keySeed;
 }
 
@@ -66,7 +66,7 @@ void encrypt() {
     // загружаем текст и считаем его размер
     String[] lines = loadStrings(textPath);    
     int textSize = 0;
-    for (int i = 0; i < lines.length; i++) textSize += lines[i].length();    
+    for (int i = 0; i < lines.length; i++) textSize += (lines[i].length() + 1);  // +1 на перенос    
 
     // ошибки
     if (textSize == 0) {
@@ -90,7 +90,7 @@ void encrypt() {
 
     // цикл шифрования
     for (int i = 0; i < lines.length; i++) {         // пробегаем по строкам
-      for (int j = 0; j < lines[i].length(); j++) {  // и каждому символу в них
+      for (int j = 0; j < lines[i].length() + 1; j++) {  // и каждому символу в них +1
 
         // поиск свободного пикселя
         int thisPix;
@@ -106,8 +106,11 @@ void encrypt() {
             break;                                   // покидаем цикл
           }
         }        
-
-        int thisChar = lines[i].charAt(j);       // читаем текущий символ
+        
+        int thisChar;
+        if (j == lines[i].length()) thisChar = int('\n');  // последний - перенос строки
+        else thisChar = lines[i].charAt(j);       // читаем текущий символ
+        
         if (thisChar > 1000) thisChar -= 890;    // костыль для русских букоф        
 
         int thisColor = imageCrypt.pixels[thisPix];  // читаем пиксель
