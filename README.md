@@ -1,6 +1,7 @@
 # crypto 
 Программы для кодирования одних данных в другие 
 ![logo](/logo.jpg)
+![logo2](/crypted_1.bmp)
 + Если не умеешь качать с гитхаба - [нажми вот сюда](https://github.com/AlexGyver/crypto/archive/main.zip), чтобы скачать весь архив полностью
 + Для запуска исходников нужно [скачать Processing](https://processing.org/download/)
 + Установить пакет [Java](https://java.com/ru/download/)
