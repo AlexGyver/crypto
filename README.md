@@ -18,7 +18,7 @@
 
 ## Папка image-sound
 ### Кодирование звука изображение и наоборот
-+ [Видос](https://youtu.be/RmHGSq6rbKA)
++ [Видос](https://youtu.be/RuNU5gbt3_w)
 + **cryptoAmpli** - пакует изображение в звук
 + **cryptoProSound** - пакует звук в изображение
 + **cryptoSpectrum** - зашивает картинку в спектр звука
